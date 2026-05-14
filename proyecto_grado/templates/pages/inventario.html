@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+<link rel="stylesheet" href="/static/Styles/styles.css">
+
+<center><h1>MENU</h1>
+<a href="{{url_for('Productos')}}">productos</a>
+<a href="{{url_for('Menu')}}">inicio</a>
+<a href="{{url_for('Inventario')}}">inventarios</a>
+</nav></h2></center>
+
+<h1>
+<center>
+ 
+  <h1>Inventario de implementos médicos y aceites</h1>
+
+  <form id="formInventario">
+    <input type="text" id="producto" placeholder="Nombre del producto" required>
+    <select id="categoria" required>
+      <option value="">Categoría</option>
+      <option value="Implementos médicos">Implementos médicos</option>
+      <option value="Aceite">Aceite</option>
+    </select>
+    <input type="number" id="cantidad" placeholder="Cantidad" required>
+    <button type="submit">Agregar</button>
+  </form>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Categoría</th>
+        <th>Cantidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tablaInventario"></tbody>
+  </table>
+
+  <script>
+    const form = document.getElementById("formInventario");
+    const tabla = document.getElementById("tablaInventario");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const producto = document.getElementById("producto").value;
+      const categoria = document.getElementById("categoria").value;
+      const cantidad = document.getElementById("cantidad").value;
+
+      const fila = document.createElement("tr");
+
+      fila.innerHTML = `
+        <td>${producto}</td>
+        <td>${categoria}</td>
+        <td>${cantidad}</td>
+        <td><button onclick="eliminarFila(this)">Eliminar</button></td>
+      `;
+
+      tabla.appendChild(fila);
+
+      form.reset();
+    });
+
+    function eliminarFila(boton) {
+      boton.parentElement.parentElement.remove();
+    }
+  </script>
+
+</center>
+</h1>
+<center>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<strong>healthy kits</strong>
+<div class="small">Productos naturales · Bogotá, Colombia</div>
+</div>
+<div style="margin-left:auto" class="small">© 2025 healthy kits · Todos los derechos reservados</div>
+</div>
+</div>
+</footer>
+</center>
+{% endblock %}

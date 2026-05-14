@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+<link rel="stylesheet" href="/static/Styles/styles.css">
+<nav><h2><center>
+<a href="../pages/menu.html"></a>
+<h1>MENU</h1>
+<a href="{{url_for('Productos')}}">productos</a>
+
+<a href="{{url_for('Inventario')}}">inventarios</a>
+</nav></h2></center>
+
+<div class="container">
+<h2>
+    botiquines salud y bienestar  S.A.S. es una empresa colombiana creada con la misión de ofrecer soluciones integrales en salud y cuidado personal. Nos especializamos en la comercialización, distribución e innovación de productos médicos, insumos hospitalarios, cosméticos y productos dermocosméticos de alta calidad.
+    <br><br>
+Nacemos con el propósito de ser un puente confiable entre fabricantes, instituciones de salud y consumidores finales, brindando productos avalados, seguros y con respaldo técnico y científico.
+<br><br>
+Misión
+
+Proveer productos médicos y cosméticos que mejoren la calidad de vida de las personas, asegurando excelencia en cada etapa del proceso: desde la adquisición hasta la entrega final, con responsabilidad ética, cumplimiento normativo y un enfoque humano.
+<br><br>
+Visión
+
+Ser reconocidos en Colombia y América Latina como una empresa líder e innovadora en el sector salud y belleza, destacándonos por nuestra calidad, servicio al cliente y compromiso con el bienestar integral.
+
+</h2>
+</div>
+
+
+<div class="containe"></div>
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<strong>healthy kits</strong>
+<div class="small">Productos naturales · Bogotá, Colombia</div>
+</div>
+<div style="margin-left:auto" class="small">© 2025 healthy kits  · Todos los derechos reservados</div>
+</div>
+</div>
+</footer>
+{% endblock %}

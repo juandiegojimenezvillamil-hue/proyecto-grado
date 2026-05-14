@@ -1,0 +1,153 @@
+{% extends 'layout.html' %}
+
+{% block contenido %}
+
+<nav><h2><center>
+<h1>MENU</h1>
+<a href="{{url_for('Productos')}}">productos</a>
+<a href="#">pagos</a>
+<a href="#">informacion de envio</a>
+<a href="{{url_for('Inventario')}}">inventarios</a>
+</nav></h2></center>
+
+
+<center><h1> productos </h1>
+   
+
+<section>
+<link rel="stylesheet" href="/static/Styles/styles.css">
+<article class="card" data-name="aceite coco puro 250ml">
+<img src="../../static/images/foto1_coco.jpeg" alt="Aceite de coco 250ml">
+<div class="name">Aceite de Coco puro 250 ml</div>
+<div class="meta">Prensado en frío - Uso alimentario y cosmético</div>
+<div class="price">$22.000 COP</div>
+<div class="actions">
+<button class="btn" onclick="showDetails('Aceite de Coco 250 ml','Aceite de coco 100% puro, prensado en frío. Apto para cocinar y uso tópico.')">Ver</button>
+<button onclick="addToCart('Aceite de Coco 250 ml')" style="padding:10px;border-radius:8px;border:1px solid #d6dbe0;background:#fff;cursor:pointer">Añadir</button>
+</div>
+</article></section>
+
+
+
+<section>
+<article class="card" data-name="aceite coco virgen 500ml">
+<img src="../../static/images/foto2_coco.jpeg" alt="Aceite de coco 500ml">
+<div class="name">Aceite de Coco Virgen 500 ml</div>
+<div class="meta">Orgánico - Certificado</div>
+<div class="price">$38.000 COP</div>
+<div class="actions">
+<button class="btn" onclick="showDetails('Aceite de Coco 500 ml','Versión orgánica, excelente para recetas y cuidado capilar.')">Ver</button>
+<button onclick="addToCart('Aceite de Coco 500 ml')" style="padding:10px;border-radius:8px;border:1px solid #d6dbe0;background:#fff;cursor:pointer">Añadir</button>
+</div>
+</article></section>
+
+
+
+
+<section>
+<article class="card" data-name="aceite coco aromatizado 100ml">
+<img src="../../static/images/foto3_coco.jpeg" alt="Aceite de coco aromatizado">
+<div class="name">Aceite de Coco aromatizado 100 ml</div>
+<div class="meta">Aromas naturales - ideal para piel</div>
+<div class="price">$18.500 COP</div>
+<div class="actions">
+<button class="btn" onclick="showDetails('Aceite aromatizado','Aceite de coco con esencias naturales de lavanda o cítricos.')">Ver</button>
+<button onclick="addToCart('Aceite aromatizado')" style="padding:10px;border-radius:8px;border:1px solid #d6dbe0;background:#fff;cursor:pointer">Añadir</button>
+</div>
+</article>
+</section>
+</div>
+
+<br><br>
+
+
+<section id="contacto" aria-labelledby="contacto-title">
+<h2 id="contacto-title" class="section-title">Contacto</h2>
+<p class="lead">¿Deseas hacer un pedido o tienes preguntas? Escríbenos.</p>
+<form onsubmit="event.preventDefault();submitForm()" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:700px">
+<input id="name" placeholder="Nombre" required style="padding:10px;border-radius:8px;border:1px solid #d6dbe0">
+<input id="email" placeholder="Correo electrónico" type="email" required style="padding:10px;border-radius:8px;border:1px solid #d6dbe0">
+<input id="phone" placeholder="Teléfono (opcional)" style="padding:10px;border-radius:8px;border:1px solid #d6dbe0">
+<select id="subject" style="padding:10px;border-radius:8px;border:1px solid #d6dbe0">
+<option>Consulta general</option>
+<option>Pedido</option>
+<option>Distribución</option>
+</select>
+<textarea id="message" placeholder="Mensaje" rows="4" style="grid-column:1/ -1;padding:10px;border-radius:8px;border:1px solid #d6dbe0"></textarea>
+<button class="btn" style="grid-column:1/ -1">Enviar mensaje</button>
+</form>
+</section>
+
+
+<br><br>
+
+</main>
+
+
+<footer>
+<div class="container">
+<div class="footer-grid">
+<div>
+<strong>healthy kits</strong>
+<div class="small">Productos naturales · Bogotá, Colombia</div>
+</div>
+<div style="margin-left:auto" class="small">© 2025 healthy kits · Todos los derechos reservados</div>
+</div>
+</div>
+</footer>
+
+
+<script>
+function showDetails(title, desc){
+alert(title + "\n\n" + desc);
+}
+function addToCart(name){
+alert('Añadido al carro: ' + name);
+}
+function submitForm(){
+const name = document.getElementById('name').value;
+alert('Gracias, ' + name + '. Hemos recibido tu mensaje.');
+document.querySelector('form').reset();
+}
+function filterProducts(){
+const q = document.getElementById('searchInput').value.toLowerCase();
+const cards = document.querySelectorAll('#productGrid .card, #aceites-coco .grid .card');
+cards.forEach(c => {
+const name = c.getAttribute('data-name') || '';
+c.style.display = name.toLowerCase().includes(q) ? 'flex' : 'none';
+});
+}
+</script></center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
